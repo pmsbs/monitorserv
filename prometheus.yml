@@ -13,6 +13,11 @@ scrape_configs:
     static_configs:
       - targets:
         - https://saobentodosapucai.sp.gov.br
+        - https://saobentodosapucai.1doc.com.br
+        - https://esus.pmsbs.sp.gov.br
+        - http://sbsamendola.ddns.net:8079/scpi9/
+        - https://saobentodosapucai.siaweb.app.br/
+        - http://sbsamendola.ddns.net:5662/sipweb/
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
