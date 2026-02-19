@@ -2,22 +2,31 @@ global:
   scrape_interval: 60s
 
 scrape_configs:
-  - job_name: 'prometheus'
+  - job_name: "prometheus"
     static_configs:
-      - targets: ['prometheus:9090']
-  - job_name: 'node'
+      - targets: ["prometheus:9090"]
+  - job_name: "node"
     static_configs:
-    - targets: ['node-exporter:9100', '192.168.0.151:9100', '192.168.0.152:9100', '192.168.0.155:9100', '192.168.0.160:9100', '192.168.0.170:9100']
-  - job_name: 'blackbox'
+      - targets:
+          [
+            "node-exporter:9100",
+            "192.168.0.151:9100",
+            "192.168.0.152:9100",
+            "192.168.0.155:9100",
+            "192.168.0.160:9100",
+            "192.168.0.170:9100",
+          ]
+  - job_name: "blackbox"
     metrics_path: /probe
     static_configs:
       - targets:
-        - https://saobentodosapucai.sp.gov.br
-        - https://saobentodosapucai.1doc.com.br
-        - http://sbsamendola.ddns.net:8079/scpi9/
-        - https://saobentodosapucai.siaweb.app.br/
-        - http://sbsamendola.ddns.net:5662/sipweb/
-        - http://177.71.227.128:8090/issweb/home
+          - https://saobentodosapucai.sp.gov.br
+          - https://saobentodosapucai.1doc.com.br
+          - https://saobento.amendolaeamendola.com.br:7443/sipweb/trabalhador/login/login.xhtml
+          - https://saobento.amendolaeamendola.com.br/transparencia
+          - https://saobento.amendolaeamendola.com.br/scpi9
+          - https://saobento.amendolaeamendola.com.br/transparenciacamara
+          - https://saobento.amendolaeamendola.com.br:8443/sipweb/trabalhador/login/login.xhtml
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
