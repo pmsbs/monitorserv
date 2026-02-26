@@ -52,3 +52,8 @@ services:
     command:
       - --config.file=/etc/blackbox_exporter/config.yml
     restart: unless-stopped
+  snmpexporter:
+    image: prom/snmp-exporter:latest
+    ports:
+      - 9116:9116
+    networks: [monitorserv]
