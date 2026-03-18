@@ -1,0 +1,9 @@
+apiVersion: 1
+contactPoints:
+  - name: ti-alert
+    receivers:
+      - uid: ti_email
+        type: email
+        settings:
+          addresses: ti@saobentodosapucai.sp.gov.br
+          singleEmail: false
